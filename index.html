@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boho Pods — Where Nature Becomes Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS & RESET
+   ============================================================ */
+:root {
+  --white:      #FFFFFF;
+  --bg:         #F7F3EB;
+  --bg-2:       #F1ECE1;
+  --sage:       #EAF0E2;
+  --forest:     #16230F;
+  --forest-2:   #1F3017;
+  --ink:        #1A2410;
+  --ink-mid:    #45583C;
+  --muted:      #8B9C80;
+  --green:      #3D6B35;
+  --green-deep: #2C5226;
+  --bronze:     #B07B3C;
+  --bronze-2:   #98682E;
+  --bronze-lt:  #F4E9D7;
+  --line:       rgba(26,36,16,0.13);
+  --line-soft:  rgba(26,36,16,0.07);
+  --line-dk:    rgba(255,255,255,0.14);
+  --shadow:     rgba(26,36,16,0.07);
+  --shadow-lg:  rgba(26,36,16,0.16);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Plus Jakarta Sans', -apple-system, sans-serif;
+  --maxw: 1280px;
+  --ease: cubic-bezier(0.22, 0.61, 0.27, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.85;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;opacity:0;transition:opacity 0.9s var(--ease)}
+body.loaded{opacity:1}
+img{display:block;max-width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--bronze);color:#fff}
+
+/* ---- Typography ---- */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-0.012em;color:var(--ink)}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:400}
+.display{font-size:clamp(54px,8.5vw,132px);font-weight:500;line-height:0.95}
+.h2{font-size:clamp(40px,5vw,82px);font-weight:500}
+.h3{font-size:clamp(28px,2.8vw,44px);font-weight:500}
+.lead{font-size:clamp(18px,1.4vw,21px);line-height:1.7;color:var(--ink-mid);max-width:56ch;font-weight:400}
+
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--bronze-2);display:inline-flex;align-items:center;gap:14px}
+.eyebrow .idx{font-variant-numeric:tabular-nums;color:var(--ink);opacity:0.55}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--bronze)}
+.eyebrow.on-dark{color:var(--bronze-lt)}
+.eyebrow.on-dark::before{background:var(--bronze-lt)}
+.eyebrow.on-dark .idx{color:#fff;opacity:0.6}
+.eyebrow.center{justify-content:center}
+
+/* ---- Layout ---- */
+.section{padding:clamp(88px,11vw,150px) 0;position:relative}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 40px}
+.bg-cream{background:var(--bg)}
+.bg-alt{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 40%,var(--bg-2) 100%)}
+.bg-sage{background:radial-gradient(130% 80% at 100% 0%,#F0F4E9 0%,var(--sage) 60%,#E4ECDA 100%)}
+.bg-white{background:var(--white)}
+.bg-dark{background:radial-gradient(120% 100% at 15% 0%,#25371B 0%,var(--forest) 58%,#0F1A09 100%);color:#E9EFE1}
+.bg-dark::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(80% 60% at 50% 120%,rgba(176,123,60,0.10),transparent 70%)}
+.bg-dark>*{position:relative;z-index:1}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,110px);align-items:center}
+.rule{height:1px;background:var(--line);border:0}
+
+/* ---- Buttons ---- */
+.btn{font-family:var(--sans);font-size:14.5px;font-weight:600;letter-spacing:0.02em;border:none;border-radius:4px;padding:17px 32px;cursor:pointer;display:inline-flex;align-items:center;gap:11px;transition:all 0.34s var(--ease);text-decoration:none;line-height:1}
+.btn svg{width:16px;height:16px;transition:transform 0.34s var(--ease)}
+.btn:hover svg.arr{transform:translateX(4px)}
+.btn-bronze{background:var(--bronze);color:#fff;box-shadow:0 10px 30px rgba(176,123,60,0.30)}
+.btn-bronze:hover{background:var(--bronze-2);box-shadow:0 16px 40px rgba(176,123,60,0.40);transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--green-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-ghost-lt{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4)}
+.btn-ghost-lt:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-wa{background:#1f9d4d;color:#fff}
+.btn-wa:hover{background:#178040;transform:translateY(-2px)}
+.btn-nav-ghost{border:1.5px solid rgba(255,255,255,0.38);color:#fff}
+.btn-nav-ghost:hover{background:rgba(255,255,255,0.12)}
+.link-arrow{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:0.04em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:9px;text-transform:uppercase}
+.link-arrow .bar{width:26px;height:1.5px;background:var(--bronze);transition:width 0.3s var(--ease)}
+.link-arrow:hover .bar{width:42px}
+
+/* ---- Reveal ---- */
+html.js .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal.d1{transition-delay:0.1s}
+html.js .reveal.d2{transition-delay:0.2s}
+html.js .reveal.d3{transition-delay:0.3s}
+html.js .reveal.d4{transition-delay:0.4s}
+
+/* ---- Cursor ---- */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;mix-blend-mode:multiply}
+.cursor-dot{width:7px;height:7px;background:var(--green);transform:translate(-50%,-50%);transition:opacity .3s,width .25s,height .25s}
+.cursor-ring{width:38px;height:38px;border:1.4px solid rgba(61,107,53,0.5);transform:translate(-50%,-50%);transition:width .28s var(--ease),height .28s var(--ease),background .28s,border-color .28s,opacity .3s}
+.cursor-ring.hover{width:62px;height:62px;background:rgba(176,123,60,0.10);border-color:var(--bronze)}
+.cursor-dot.hover{width:0;height:0}
+@media(hover:none),(max-width:1024px){.cursor-dot,.cursor-ring{display:none}}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{position:fixed;top:0;left:0;right:0;height:84px;z-index:1000;display:flex;align-items:center;transition:background 0.45s var(--ease),backdrop-filter 0.45s var(--ease),height 0.45s var(--ease),box-shadow 0.45s var(--ease)}
+.nav.scrolled{height:70px;background:rgba(18,28,13,0.85);backdrop-filter:blur(20px) saturate(1.3);box-shadow:0 1px 0 rgba(255,255,255,0.06)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;max-width:1420px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;white-space:nowrap}
+.brand .mono{width:40px;height:40px;border-radius:7px;display:grid;place-items:center;background:linear-gradient(140deg,var(--bronze) 0%,var(--green) 100%);color:#fff;font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:0.02em;box-shadow:0 4px 14px rgba(0,0,0,0.18)}
+.brand .wm{display:flex;flex-direction:column;line-height:1}
+.brand .wm b{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:0.18em;color:#fff}
+.brand .wm span{font-family:var(--sans);font-size:8.5px;font-weight:600;letter-spacing:0.42em;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:0.03em;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--bronze);transition:width 0.3s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.nav-actions .btn{padding:12px 22px;font-size:13px}
+
+/* ============================================================
+   HERO — scroll-driven video
+   ============================================================ */
+#hero-wrap{height:550vh;position:relative}
+.hero{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:flex-end}
+#video-canvas{display:none}
+#source-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block;will-change:transform;transform:translateZ(0)}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,22,10,0.52) 0%,rgba(15,22,10,0.08) 28%,rgba(15,22,10,0) 50%,rgba(15,22,10,0) 72%,rgba(15,22,10,0.22) 100%)}
+.hero-inner{position:relative;z-index:3;width:100%;max-width:1420px;margin:0 auto;padding:0 40px 76px}
+/* single phase container — JS injects one phase at a time */
+#hero-content{position:absolute;left:8%;bottom:18%;z-index:3;max-width:680px;width:88%;max-height:calc(82vh - 100px);overflow:hidden}
+.hero-phase{opacity:0;pointer-events:none}
+.hero-phase.vis{opacity:1;pointer-events:auto}
+.hero-eyebrow{color:#fff}
+.hero-eyebrow::before{background:var(--bronze-lt)}
+.hero-eyebrow .idx{color:#fff;opacity:0.7}
+.hero h1{color:#fff;font-size:clamp(58px,9vw,130px);font-weight:500;line-height:0.94;letter-spacing:-0.02em;max-width:14ch;margin-top:20px;text-shadow:0 4px 60px rgba(0,0,0,0.30)}
+.hero h1 em{color:#F1DEC0}
+.hero-sub{color:rgba(255,255,255,0.88);font-size:clamp(16px,1.4vw,19px);line-height:1.7;max-width:44ch;margin-top:20px;text-shadow:0 2px 24px rgba(0,0,0,0.35)}
+.hero-meta{display:flex;gap:24px;margin-top:26px;flex-wrap:wrap}
+.hero-meta span{color:#fff;font-size:14px;font-weight:500;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:10px}
+.hero-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bronze-lt)}
+/* scroll cue */
+#scroll-cue-vid{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.55);font-size:9px;letter-spacing:4px;text-transform:uppercase;font-family:var(--sans)}
+#scroll-cue-vid .drip-wrap{width:1px;height:44px;background:rgba(255,255,255,0.2);overflow:hidden;position:relative}
+#scroll-cue-vid .drip{position:absolute;top:-100%;left:0;width:100%;height:100%;background:rgba(255,255,255,0.7);animation:drip 1.8s ease-in infinite}
+@keyframes drip{to{top:100%}}
+.scroll-seal{position:absolute;right:48px;bottom:150px;z-index:3;width:116px;height:116px;display:grid;place-items:center}
+.scroll-seal .ring-txt{position:absolute;inset:0;animation:spin 18s linear infinite}
+.scroll-seal text{fill:#fff;font-family:var(--sans);font-size:9.6px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase}
+.scroll-seal .core{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.5);display:grid;place-items:center}
+.scroll-seal .core svg{width:18px;height:18px;color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Booking bar */
+.booking{position:relative;z-index:5;margin:0 auto;max-width:1340px;width:calc(100% - 80px);background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.7);border-radius:10px;box-shadow:0 34px 80px rgba(15,22,10,0.30);padding:28px 30px 26px;margin-top:clamp(48px,6vw,80px)}
+.booking-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;gap:20px}
+.booking-head .t{font-family:var(--serif);font-size:clamp(24px,2vw,30px);font-weight:600;color:var(--ink)}
+.booking-head .s{font-size:13px;color:var(--muted);letter-spacing:0.04em}
+.booking-fields{display:grid;grid-template-columns:1.1fr 1fr 1.2fr 1fr auto;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.bfield{padding:15px 22px;border-right:1px solid var(--line)}
+.bfield:nth-child(4){border-right:none}
+.bfield label{display:block;font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.bfield .v{font-size:15px;font-weight:500;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bfield .v svg{width:15px;height:15px;color:var(--bronze)}
+.booking-fields .btn{border-radius:0;padding:0 36px;height:100%}
+.booking-filters{display:flex;align-items:center;gap:9px;margin-top:18px;flex-wrap:wrap}
+.booking-filters .lbl{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-right:6px}
+.chip{font-size:13px;font-weight:500;color:var(--ink-mid);padding:8px 18px;border:1px solid var(--line);border-radius:100px;cursor:pointer;transition:all 0.2s;background:#fff}
+.chip.active,.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{padding:clamp(40px,5vw,64px) 0;overflow:hidden;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.marquee-track{display:inline-flex;align-items:center;gap:46px;will-change:transform}
+.marquee-track span{font-family:var(--serif);font-size:clamp(34px,4.4vw,64px);font-weight:500;font-style:italic;color:var(--ink);letter-spacing:-0.01em}
+.marquee-track .dot{font-style:normal;color:var(--bronze);font-size:0.5em;vertical-align:middle}
+.marquee-track .out{-webkit-text-stroke:1px var(--muted);-webkit-text-fill-color:transparent;font-style:normal}
+
+/* ============================================================
+   MANIFESTO
+   ============================================================ */
+.manifesto-quote{position:relative}
+.manifesto-quote .qmark{font-family:var(--serif);font-size:200px;line-height:0.5;color:var(--bronze);opacity:0.9;display:block;height:90px}
+.manifesto-quote blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,56px);line-height:1.18;color:var(--ink);letter-spacing:-0.015em}
+.manifesto-quote blockquote em{color:var(--green)}
+.manifesto-attr{display:flex;align-items:center;gap:16px;margin-top:34px}
+.manifesto-attr .ln{width:50px;height:2px;background:var(--bronze)}
+.manifesto-attr b{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.manifesto-attr span{display:block;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:3px;font-weight:500}
+.manifesto-img{position:relative}
+.manifesto-img .img-wrap{width:100%;height:520px;border-radius:10px;overflow:hidden}
+.manifesto-img .tagchip{position:absolute;top:20px;left:-16px;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:12px 18px;box-shadow:0 14px 34px var(--shadow-lg);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(64px,7vw,100px);border-top:1px solid var(--line)}
+.stat{padding:40px 28px 0;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--serif);font-size:clamp(56px,6vw,88px);font-weight:500;color:var(--ink);line-height:0.9;letter-spacing:-0.02em}
+.stat .n .sfx{color:var(--bronze)}
+.stat .l{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:500}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+.sec-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:clamp(48px,5vw,76px)}
+.sec-head .lead{max-width:40ch}
+.sec-head .title{margin-top:20px;max-width:16ch}
+
+/* ============================================================
+   POD GALLERY
+   ============================================================ */
+.flagship{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(36px,4vw,64px);align-items:stretch;margin-bottom:80px}
+.flagship .media{position:relative;border-radius:10px;overflow:hidden;min-height:560px;box-shadow:0 30px 70px var(--shadow-lg)}
+.flagship .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.flagship:hover .media img{transform:scale(1.05)}
+.flagship .badge{position:absolute;top:24px;left:24px;z-index:2;background:rgba(255,255,255,0.95);color:var(--green);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:9px 16px;border-radius:100px}
+.flagship .idxnum{position:absolute;top:22px;right:28px;z-index:2;font-family:var(--serif);font-size:40px;font-weight:500;color:rgba(255,255,255,0.9)}
+.flagship .body{display:flex;flex-direction:column;justify-content:center;padding:8px 0}
+.flagship .kf{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze-2)}
+.flagship .nm{font-family:var(--serif);font-size:clamp(38px,4vw,60px);font-weight:500;color:var(--ink);line-height:1.02;margin-top:16px;letter-spacing:-0.015em}
+.flagship .loc{font-size:15px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:8px}
+.flagship .loc svg{width:15px;height:15px}
+.flagship .dsc{color:var(--ink-mid);margin-top:22px;max-width:44ch}
+.flagship .specrow{display:flex;gap:0;margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.flagship .specrow .sp{flex:1;padding:20px 0;border-right:1px solid var(--line)}
+.flagship .specrow .sp:last-child{border-right:none}
+.flagship .specrow .sp .k{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.flagship .specrow .sp .v{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);margin-top:4px}
+.flagship .foot{display:flex;align-items:center;justify-content:space-between;margin-top:30px}
+.flagship .price{font-family:var(--serif);font-size:38px;font-weight:600;color:var(--ink)}
+.flagship .price small{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--muted)}
+.pod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.pod-card{background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 4px 22px var(--shadow);transition:transform 0.45s var(--ease),box-shadow 0.45s var(--ease)}
+.pod-card:hover{transform:translateY(-8px);box-shadow:0 28px 56px var(--shadow-lg)}
+.pod-card .imgw{position:relative;height:270px;overflow:hidden}
+.pod-card .imgw img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s var(--ease)}
+.pod-card:hover .imgw img{transform:scale(1.05)}
+.pod-tag{position:absolute;top:16px;left:16px;z-index:3;background:rgba(255,255,255,0.95);color:var(--green);font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;border-radius:100px}
+.pod-fav{position:absolute;top:13px;right:13px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.95);display:grid;place-items:center;color:var(--ink-mid);cursor:pointer;transition:all 0.2s;border:none}
+.pod-fav:hover,.pod-fav.on{color:var(--bronze);transform:scale(1.1)}
+.pod-fav.on svg{fill:var(--bronze)}
+.pod-fav svg{width:17px;height:17px}
+.pod-body{padding:24px 24px 26px}
+.pod-specs{display:flex;gap:18px;font-size:12.5px;color:var(--ink-mid);font-weight:500;margin-bottom:13px}
+.pod-specs span{display:inline-flex;align-items:center;gap:6px}
+.pod-specs svg{width:15px;height:15px;color:var(--green)}
+.pod-name{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);line-height:1.05}
+.pod-loc{font-size:13.5px;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:6px}
+.pod-loc svg{width:14px;height:14px}
+.pod-foot{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.pod-price{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--ink)}
+.pod-price small{font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--muted)}
+
+/* ============================================================
+   ARCHITECTURE
+   ============================================================ */
+.arch-stats{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.pill-stat{background:var(--sage);border:1px solid var(--line);border-radius:8px;padding:22px 28px}
+.pill-stat .n{font-family:var(--serif);font-size:42px;font-weight:600;color:var(--green);line-height:1}
+.pill-stat .t{font-size:13px;color:var(--ink-mid);margin-top:8px;line-height:1.5}
+.arch-img{position:relative}
+.arch-img .img-wrap{width:100%;height:520px;border-radius:10px;overflow:hidden;background:var(--bg-2);display:flex;align-items:center;justify-content:center}
+.arch-img .img-wrap img{width:90%;height:90%;object-fit:contain;mix-blend-mode:multiply}
+.arch-float{position:absolute;bottom:-24px;right:-16px;background:var(--white);border:1px solid var(--line);border-radius:8px;box-shadow:0 20px 46px var(--shadow-lg);padding:18px 24px;display:flex;align-items:center;gap:16px}
+.arch-float .ic{width:46px;height:46px;border-radius:8px;background:var(--bronze-lt);color:var(--bronze-2);display:grid;place-items:center}
+.arch-float .ic svg{width:23px;height:23px}
+.arch-float .tx b{font-family:var(--serif);font-size:21px;color:var(--ink);display:block;line-height:1}
+.arch-float .tx span{font-size:12px;color:var(--muted)}
+
+/* ============================================================
+   BUYING OPTIONS
+   ============================================================ */
+.buy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+.buy-card{background:rgba(255,255,255,0.035);border:1px solid var(--line-dk);border-radius:10px;padding:40px 34px 36px;display:flex;flex-direction:column;transition:all 0.4s var(--ease);position:relative;overflow:hidden}
+.buy-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(176,123,60,0.55);transform:translateY(-6px)}
+.buy-card.featured{background:linear-gradient(180deg,rgba(176,123,60,0.12),rgba(255,255,255,0.03));border-color:rgba(176,123,60,0.5);border-top:3px solid var(--bronze);box-shadow:0 30px 70px rgba(0,0,0,0.3)}
+.buy-card .ribbon{position:absolute;top:20px;right:24px;background:var(--bronze);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 13px;border-radius:5px}
+.buy-num{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--bronze-lt);margin-bottom:22px}
+.buy-ic{width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.06);display:grid;place-items:center;color:var(--bronze-lt);margin-bottom:24px}
+.buy-ic svg{width:27px;height:27px}
+.buy-card h3{color:#fff;font-size:34px}
+.buy-card .desc{color:rgba(233,239,225,0.72);font-size:15.5px;line-height:1.7;margin-top:13px}
+.buy-features{list-style:none;margin:28px 0 32px;display:flex;flex-direction:column;gap:14px}
+.buy-features li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(233,239,225,0.9)}
+.buy-features svg{width:18px;height:18px;color:var(--bronze-lt);flex-shrink:0;margin-top:4px}
+.buy-card .btn{margin-top:auto;justify-content:center}
+
+/* ============================================================
+   PROCESS TIMELINE
+   ============================================================ */
+.timeline{position:relative}
+.tl-line{position:absolute;left:27px;top:30px;bottom:30px;width:2px;background:var(--line)}
+.tl-line .fill{position:absolute;left:0;top:0;width:100%;background:var(--green);height:0;transition:height 1.4s var(--ease)}
+.tl-step{display:grid;grid-template-columns:56px 1fr;gap:32px;align-items:start;padding:26px 0;position:relative}
+.tl-dot{width:56px;height:56px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--muted);position:relative;z-index:2;transition:all 0.5s var(--ease)}
+.tl-step.active .tl-dot{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 10px 26px rgba(61,107,53,0.3)}
+.tl-step .b{padding-top:4px}
+.tl-step .dur{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--bronze-2);margin-bottom:8px}
+.tl-step .b h3{font-size:clamp(28px,2.6vw,38px);margin-bottom:8px}
+.tl-step .b p{font-size:16.5px;color:var(--ink-mid);max-width:58ch}
+
+/* ============================================================
+   ADD-ONS
+   ============================================================ */
+.addon-wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(40px,5vw,72px);align-items:center}
+.addon-list{display:flex;flex-direction:column}
+.addon-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:22px;border-bottom:1px solid var(--line);cursor:pointer;transition:all 0.35s var(--ease);border-radius:8px}
+.addon-item:first-child{border-top:1px solid var(--line)}
+.addon-item .ix{font-family:var(--serif);font-size:16px;color:var(--muted);transition:color 0.3s}
+.addon-item .nm{font-family:var(--serif);font-size:clamp(24px,2.2vw,32px);font-weight:500;color:var(--ink);transition:color 0.3s}
+.addon-item .ar{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--muted);opacity:0;transform:translateX(-10px);transition:all 0.35s var(--ease)}
+.addon-item .ar svg{width:16px;height:16px}
+.addon-item.active,.addon-item:hover{background:var(--sage);padding-left:30px}
+.addon-item.active .nm,.addon-item:hover .nm{color:var(--green)}
+.addon-item.active .ix,.addon-item:hover .ix{color:var(--bronze-2)}
+.addon-item.active .ar,.addon-item:hover .ar{opacity:1;transform:none;border-color:var(--green);color:var(--green)}
+.addon-media{position:relative;height:580px;border-radius:10px;overflow:hidden;box-shadow:0 30px 66px var(--shadow-lg)}
+.addon-media img{width:100%;height:100%;object-fit:cover;transition:opacity 0.45s var(--ease);position:absolute;inset:0}
+.addon-media img.hidden{opacity:0}
+.addon-caption{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:34px 36px;color:#fff;background:linear-gradient(0deg,rgba(15,22,10,0.82),transparent)}
+.addon-caption .k{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#F1DEC0}
+.addon-caption .v{font-family:var(--serif);font-size:36px;font-weight:600;margin-top:5px}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.test-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:36px 32px;box-shadow:0 4px 22px var(--shadow);display:flex;flex-direction:column;transition:transform 0.4s var(--ease),box-shadow 0.4s var(--ease)}
+.test-card:hover{transform:translateY(-6px);box-shadow:0 26px 56px var(--shadow-lg)}
+.stars{display:flex;gap:3px;color:var(--bronze);margin-bottom:22px}
+.stars svg{width:18px;height:18px;fill:var(--bronze)}
+.test-card .q{font-family:var(--serif);font-size:clamp(21px,1.8vw,25px);line-height:1.38;color:var(--ink);flex:1;letter-spacing:-0.01em}
+.test-who{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.test-who .avatar{width:54px;height:54px;border-radius:50%;background:var(--sage);flex-shrink:0;display:grid;place-items:center;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--green)}
+.test-who b{font-size:15px;font-weight:600;color:var(--ink);display:block}
+.test-who span{font-size:13px;color:var(--muted)}
+
+/* ============================================================
+   PARALLAX
+   ============================================================ */
+.parallax{position:relative;min-height:620px;display:grid;place-items:center;text-align:center;overflow:hidden}
+.parallax-bg{position:absolute;inset:-12% 0;z-index:0;background-size:cover;background-position:center;will-change:transform}
+.parallax-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,22,10,0.5),rgba(15,22,10,0.68))}
+.parallax-inner{position:relative;z-index:2;padding:110px 40px;max-width:1040px}
+.parallax-inner .eyebrow{color:#F1DEC0;justify-content:center}
+.parallax-inner .eyebrow::before{background:var(--bronze-lt)}
+.parallax-inner h2{color:#fff;font-size:clamp(44px,6.5vw,104px);font-weight:500;line-height:1.0;margin-top:22px}
+.parallax-inner h2 em{color:#F1DEC0}
+.parallax-inner p{color:rgba(255,255,255,0.9);font-size:19px;margin:24px auto 38px;max-width:52ch}
+
+/* ============================================================
+   FOUNDER
+   ============================================================ */
+.founder-photo{position:relative}
+.founder-photo .img-wrap{width:100%;height:600px;border-radius:10px;overflow:hidden}
+.founder-badge{position:absolute;bottom:28px;left:28px;right:28px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-radius:8px;padding:20px 24px;display:flex;align-items:center;gap:18px;box-shadow:0 16px 40px var(--shadow-lg)}
+.founder-badge .ln{width:3px;height:46px;background:var(--bronze);border-radius:2px}
+.founder-badge b{font-family:var(--serif);font-size:23px;color:var(--ink);display:block;line-height:1.1}
+.founder-badge span{font-size:13px;color:var(--muted)}
+.founder-body blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,52px);line-height:1.16;color:var(--ink);letter-spacing:-0.015em}
+.founder-body blockquote em{color:var(--green)}
+.founder-body p{margin-top:26px;color:var(--ink-mid)}
+.signature{font-family:var(--serif);font-style:italic;font-size:40px;color:var(--green);margin-top:30px;line-height:1}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,96px);align-items:center}
+.contact-info h2{color:#fff}
+.contact-info h2 em{color:#F1DEC0}
+.contact-info .lead{color:rgba(233,239,225,0.78);margin-top:20px}
+.contact-points{list-style:none;margin-top:38px;display:flex;flex-direction:column;gap:22px}
+.contact-points li{display:flex;align-items:center;gap:16px;color:rgba(233,239,225,0.92);font-size:16px}
+.contact-points .ic{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.06);display:grid;place-items:center;color:var(--bronze-lt);flex-shrink:0}
+.contact-points .ic svg{width:21px;height:21px}
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid var(--line-dk);border-radius:12px;padding:42px 40px}
+.form-row{margin-bottom:22px}
+.form-row label{display:block;font-size:12.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(233,239,225,0.85);margin-bottom:10px}
+.form-row input,.form-row textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--line-dk);border-radius:7px;padding:16px;color:#fff;font-family:var(--sans);font-size:16px;transition:border 0.2s,background 0.2s}
+.form-row input::placeholder,.form-row textarea::placeholder{color:rgba(233,239,225,0.4)}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:var(--bronze);background:rgba(255,255,255,0.08)}
+.form-row textarea{resize:vertical;min-height:120px}
+.consent{display:flex;align-items:flex-start;gap:12px;margin-bottom:28px}
+.consent input{width:19px;height:19px;accent-color:var(--bronze);margin-top:3px;flex-shrink:0}
+.consent label{font-size:14px;color:rgba(233,239,225,0.75);line-height:1.6}
+.contact-form .btn-bronze{width:100%;justify-content:center;padding:18px}
+.form-note{text-align:center;margin-top:20px;font-size:14px;color:rgba(233,239,225,0.6)}
+.form-note a{color:#5fd884;text-decoration:none;font-weight:600}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:#0E1808;color:rgba(233,239,225,0.65)}
+.footer-cta{border-bottom:1px solid var(--line-dk);padding:clamp(64px,7vw,96px) 0;text-align:center}
+.footer-cta h2{color:#fff;max-width:18ch;margin:0 auto}
+.footer-cta h2 em{color:#F1DEC0}
+.footer-cta p{color:rgba(233,239,225,0.7);margin:22px auto 36px;max-width:48ch;font-size:18px}
+.footer-top{padding:76px 0 56px;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:48px}
+.footer .brand .wm b{color:#fff}
+.footer-about p{font-size:15px;line-height:1.85;max-width:32ch;margin-top:22px}
+.footer-social{display:flex;gap:11px;margin-top:24px}
+.footer-social a{width:42px;height:42px;border-radius:7px;border:1px solid var(--line-dk);display:grid;place-items:center;color:rgba(233,239,225,0.7);transition:all 0.25s}
+.footer-social a:hover{background:var(--bronze);color:#fff;border-color:var(--bronze);transform:translateY(-2px)}
+.footer-social svg{width:17px;height:17px}
+.footer-col h4{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(233,239,225,0.45);margin-bottom:22px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.footer-col a{color:rgba(233,239,225,0.78);text-decoration:none;font-size:15px;transition:color 0.2s}
+.footer-col a:hover{color:var(--bronze-lt)}
+.footer-bottom{border-top:1px solid var(--line-dk);padding:28px 0;display:flex;justify-content:space-between;align-items:center;font-size:13.5px}
+.footer-bottom a{color:rgba(233,239,225,0.7);text-decoration:none}
+.footer-bottom a:hover{color:var(--bronze-lt)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1024px){
+  .nav-links{display:none}
+  .grid-2{grid-template-columns:1fr}
+  .booking-fields{grid-template-columns:1fr 1fr}
+  .bfield:nth-child(2){border-right:none}
+  .booking-fields .btn{grid-column:1/-1;border-radius:6px;padding:16px;margin-top:8px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .scroll-seal{display:none}
+  .flagship{grid-template-columns:1fr}
+  .flagship .media{min-height:420px}
+  .pod-grid,.buy-grid,.test-grid{grid-template-columns:1fr 1fr}
+  .addon-wrap,.contact-wrap{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line);padding:28px 0}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  .container{padding:0 22px}
+  .hero-inner{padding:0 22px 110px}
+  .booking{width:calc(100% - 44px);padding:22px}
+  .booking-fields{grid-template-columns:1fr}
+  .bfield{border-right:none;border-bottom:1px solid var(--line)}
+  .pod-grid,.buy-grid,.test-grid{grid-template-columns:1fr}
+  .flagship .specrow{flex-direction:column}
+  .flagship .specrow .sp{border-right:none;border-bottom:1px solid var(--line)}
+  .tl-step{grid-template-columns:48px 1fr;gap:20px}
+  .tl-dot{width:48px;height:48px}
+  .tl-line{left:23px}
+  .addon-media{height:420px}
+  .footer-top{grid-template-columns:1fr;gap:36px}
+  .nav-actions .btn-nav-ghost{display:none}
+}
+
+/* ── Loading screen ── */
+#loading-screen{position:fixed;inset:0;background:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:20px;transition:opacity 0.8s ease}
+#loading-screen.fade-out{opacity:0;pointer-events:none}
+.ls-brand{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:6px;color:#fff;text-transform:uppercase}
+.ls-sub{font-family:var(--sans);font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:-8px}
+.ls-bar-wrap{width:200px;height:1px;background:rgba(255,255,255,0.12);overflow:hidden}
+.ls-bar-fill{height:100%;width:0%;background:var(--bronze);transition:width 0.1s linear}
+.ls-pct{font-family:var(--sans);font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.28)}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="ls-brand">Boho Pods</div>
+  <div class="ls-sub">Loading experience</div>
+  <div class="ls-bar-wrap"><div class="ls-bar-fill" id="ls-bar"></div></div>
+  <div class="ls-pct" id="ls-pct">0%</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav">
+  <div class="container">
+    <a href="#home" class="brand">
+      <span class="mono">BP</span>
+      <span class="wm"><b>BOHO PODS</b><span>Luxury Glamping Pods</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#pods">Pods</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#addons">Add-Ons</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#buy">Buy Now</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#contact" class="btn btn-nav-ghost">Contact us</a>
+      <a href="https://wa.me/919999999999" target="_blank" class="btn btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div id="hero-wrap" class="hero-scroll-track">
+<section class="hero" id="home">
+  <canvas id="video-canvas"></canvas>
+  <video id="source-video" src="bohopods-hero-journey.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <div class="hero-scrim"></div>
+  <!-- JS-managed phase content -->
+  <div id="hero-content"></div>
+  <!-- Rotating scroll seal -->
+  <div class="scroll-seal">
+    <svg class="ring-txt" viewBox="0 0 116 116">
+      <path id="seal-path" d="M 58,58 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" fill="none"/>
+      <text><textPath href="#seal-path">SCROLL TO EXPLORE · SCROLL TO EXPLORE · </textPath></text>
+    </svg>
+    <div class="core">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </div>
+  <!-- Scroll cue -->
+  <div id="scroll-cue-vid">
+    <span>Scroll</span>
+    <div class="drip-wrap"><div class="drip"></div></div>
+  </div>
+</section>
+</div>
+
+<!-- Booking bar -->
+<div class="booking">
+  <div class="booking-head">
+    <span class="t">Find Your Perfect Pod</span>
+    <span class="s">12 models · 8 add-ons · pan-India</span>
+  </div>
+  <div class="booking-fields">
+    <div class="bfield">
+      <label>Location</label>
+      <div class="v">Mountains, Coorg
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="bfield">
+      <label>Pod Type</label>
+      <div class="v">Studio Pod
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="bfield">
+      <label>Investment Range</label>
+      <div class="v">₹20L – ₹40L
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="bfield">
+      <label>Timeline</label>
+      <div class="v">30–45 Days
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <a href="#contact" class="btn btn-bronze">Get Quote
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="booking-filters">
+    <span class="lbl">Filter by:</span>
+    <span class="chip active">Mountain</span>
+    <span class="chip">Coastal</span>
+    <span class="chip">Forest</span>
+    <span class="chip">Desert</span>
+    <span class="chip">Backwater</span>
+    <span class="chip">With Pool</span>
+  </div>
+</div>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Coorg</span><span class="dot">◆</span>
+    <span>Munnar</span><span class="dot">◆</span>
+    <span class="out">Goa</span><span class="dot">◆</span>
+    <span>Manali</span><span class="dot">◆</span>
+    <span>Wayanad</span><span class="dot">◆</span>
+    <span class="out">Ooty</span><span class="dot">◆</span>
+    <span>Rishikesh</span><span class="dot">◆</span>
+    <span>Spiti</span><span class="dot">◆</span>
+    <span>Coorg</span><span class="dot">◆</span>
+    <span>Munnar</span><span class="dot">◆</span>
+    <span class="out">Goa</span><span class="dot">◆</span>
+    <span>Manali</span><span class="dot">◆</span>
+    <span>Wayanad</span><span class="dot">◆</span>
+    <span class="out">Ooty</span><span class="dot">◆</span>
+    <span>Rishikesh</span><span class="dot">◆</span>
+    <span>Spiti</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">02</span> Our Philosophy</div>
+        <div class="manifesto-quote reveal d1">
+          <span class="qmark">"</span>
+          <blockquote class="split">The pod is not the destination — <em>the landscape is.</em></blockquote>
+        </div>
+        <div class="manifesto-attr reveal d2">
+          <div class="ln"></div>
+          <div>
+            <b>Vikram Dangi</b>
+            <span>Founder, Boho Pods</span>
+          </div>
+        </div>
+        <p class="lead reveal d3" style="margin-top:32px">We design structures that disappear into their surroundings — so what you remember is the mist, the valley, the sound of rain on the deck. Not the walls.</p>
+      </div>
+      <div class="manifesto-img reveal d1">
+        <div class="img-wrap">
+          <img src="bohopods-interior-bedroom-curved-glass-misty-mountain-valley.png" alt="Interior with mountain view">
+        </div>
+        <div class="tagchip">Forest Green · Certified</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="n"><span data-count="12">0</span><span class="sfx">+</span></div>
+        <div class="l">Pod Models Available</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="n"><span data-count="30">0</span></div>
+        <div class="l">Days to Full Install</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="n"><span data-count="100">0</span><span class="sfx">%</span></div>
+        <div class="l">Prefab — Zero On-Site Build</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POD GALLERY ============ -->
+<section class="section bg-alt" id="pods">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">03</span> The Collection</div>
+        <h2 class="h2 split" style="margin-top:20px">Six Landscapes,<br><em>One Standard.</em></h2>
+      </div>
+      <p class="lead reveal">Twelve models, each designed for a specific terrain. Six shown here.</p>
+    </div>
+
+    <!-- Flagship -->
+    <div class="flagship reveal">
+      <div class="media">
+        <img src="bohopods-exterior-mountain-sunset-terrace-outdoor-seating.png" alt="Horizon Retreat">
+        <div class="badge">Signature Collection</div>
+        <div class="idxnum">01</div>
+      </div>
+      <div class="body">
+        <div class="kf">Mountain Edition · Featured Pod</div>
+        <div class="nm">Horizon Retreat</div>
+        <div class="loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mountain Terraces, Western Ghats
+        </div>
+        <p class="dsc">Perched above the valley with a wraparound terrace and floor-to-ceiling glass panels that frame every sunrise. The flagship model — our highest-specified build.</p>
+        <div class="specrow">
+          <div class="sp"><div class="k">Area</div><div class="v">42 m²</div></div>
+          <div class="sp"><div class="k">Beds</div><div class="v">1 King</div></div>
+          <div class="sp"><div class="k">Install</div><div class="v">30 Days</div></div>
+          <div class="sp"><div class="k">Warranty</div><div class="v">25 Yrs</div></div>
+        </div>
+        <div class="foot">
+          <div class="price">₹32L <small>onwards</small></div>
+          <a href="#contact" class="btn btn-bronze">Enquire Now
+            <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="pod-grid">
+      <div class="pod-card reveal">
+        <div class="imgw">
+          <img src="bohopods-exterior-forest-stone-firepit-misty-mountains.png" alt="Canopy Cabin">
+          <div class="pod-tag">Forest Edition</div>
+          <button class="pod-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="pod-body">
+          <div class="pod-specs">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>38 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>1 Bed</span>
+          </div>
+          <div class="pod-name">Canopy Cabin</div>
+          <div class="pod-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg>Forest Terrains</div>
+          <div class="pod-foot">
+            <div class="pod-price">₹24L <small>onwards</small></div>
+            <a href="#contact" class="link-arrow">Enquire <div class="bar"></div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal d1">
+        <div class="imgw">
+          <img src="bohopods-deck-beachfront-lounge-palm-sunset.png" alt="Shoreline Sanctuary">
+          <div class="pod-tag">Coastal Edition</div>
+          <button class="pod-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="pod-body">
+          <div class="pod-specs">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>45 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>1 Bed</span>
+          </div>
+          <div class="pod-name">Shoreline Sanctuary</div>
+          <div class="pod-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg>Coastal Sites</div>
+          <div class="pod-foot">
+            <div class="pod-price">₹32L <small>onwards</small></div>
+            <a href="#contact" class="link-arrow">Enquire <div class="bar"></div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal d2">
+        <div class="imgw">
+          <img src="bohopods-exterior-zen-rock-garden-mountain-backdrop.png" alt="Rock Garden Retreat">
+          <div class="pod-tag">Zen Edition</div>
+          <button class="pod-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+        </div>
+        <div class="pod-body">
+          <div class="pod-specs">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>36 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>1 Bed</span>
+          </div>
+          <div class="pod-name">Rock Garden Retreat</div>
+          <div class="pod-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg>Mountain Slopes</div>
+          <div class="pod-foot">
+            <div class="pod-price">₹30L <small>onwards</small></div>
+            <a href="#contact" class="link-arrow">Enquire <div class="bar"></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section class="section bg-sage" id="architecture">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">04</span> Engineering</div>
+        <h2 class="h2 split" style="margin-top:20px">Engineered to<br><em>Last Decades.</em></h2>
+        <p class="lead reveal d1" style="margin-top:24px">Every Boho Pod is built from first principles — structural steel frame, precision-cut SIP panels, and weather-sealed connections that perform across India's harshest climates.</p>
+        <div class="arch-stats">
+          <div class="pill-stat reveal d1">
+            <div class="n">25</div>
+            <div class="t">Year structural<br>warranty</div>
+          </div>
+          <div class="pill-stat reveal d2">
+            <div class="n">IS:800</div>
+            <div class="t">Steel code<br>compliant</div>
+          </div>
+          <div class="pill-stat reveal d3">
+            <div class="n">Zone IV</div>
+            <div class="t">Seismic<br>rated</div>
+          </div>
+        </div>
+        <div style="margin-top:40px" class="reveal d2">
+          <a href="#contact" class="btn btn-dark">Download Spec Sheet
+            <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="arch-img reveal d1">
+        <div class="img-wrap">
+          <img src="bohopods-3d-isometric-floorplan-pod-layout.png" alt="3D Isometric Floorplan">
+        </div>
+        <div class="arch-float">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="tx">
+            <b>Factory Built</b>
+            <span>Zero on-site fabrication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUYING OPTIONS ============ -->
+<section class="section bg-dark" id="buy">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:60px">
+      <div>
+        <div class="eyebrow on-dark reveal"><span class="idx">05</span> Investment Options</div>
+        <h2 class="h2 split" style="margin-top:20px;color:#fff">Three Ways to<br><em style="color:#F1DEC0">Own Your Pod.</em></h2>
+      </div>
+      <p class="lead reveal" style="color:rgba(233,239,225,0.75)">Choose the model that fits your capital structure. All three include the same pod quality.</p>
+    </div>
+    <div class="buy-grid">
+      <div class="buy-card reveal">
+        <div class="buy-num">01 / 03</div>
+        <div class="buy-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Full Cash<br>Purchase</h3>
+        <p class="desc">One payment, complete delivery, full warranty. The cleanest path to ownership with priority manufacturing slot.</p>
+        <ul class="buy-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority manufacturing slot</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Full customisation freedom</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>30-day on-site installation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2-year maintenance support</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost-lt">Get a Quote</a>
+      </div>
+      <div class="buy-card featured reveal d1">
+        <div class="ribbon">Most Popular</div>
+        <div class="buy-num">02 / 03</div>
+        <div class="buy-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Structured<br>EMI Plan</h3>
+        <p class="desc">Spread your investment across 12–36 months. Lock in today's pricing and start generating revenue from month one.</p>
+        <ul class="buy-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>20% booking amount</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Flexible 12–36 month terms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lock in today's pricing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Revenue from month one</li>
+        </ul>
+        <a href="#contact" class="btn btn-bronze">Explore EMI</a>
+      </div>
+      <div class="buy-card reveal d2">
+        <div class="buy-num">03 / 03</div>
+        <div class="buy-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Revenue<br>Share Model</h3>
+        <p class="desc">Zero upfront cost. We install, you operate. Revenue split agreed before installation begins — no capital required.</p>
+        <ul class="buy-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>No capital required</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Boho manages pod quality</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Monthly revenue share</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Annual model refresh option</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost-lt">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section bg-cream" id="process">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">06</span> From Idea to Installation</div>
+        <h2 class="h2 split" style="margin-top:20px">How We<br><em>Build Yours.</em></h2>
+      </div>
+      <p class="lead reveal">Five stages. Thirty days on-site. Revenue starts the day after handover.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-line"><div class="fill"></div></div>
+      <div class="tl-step">
+        <div class="tl-dot">1</div>
+        <div class="b">
+          <div class="dur">Week 1 · Remote</div>
+          <h3 class="h3">Consultation</h3>
+          <p>A 45-minute call to understand your land, vision, and investment parameters. We come prepared with site-specific precedents.</p>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">2</div>
+        <div class="b">
+          <div class="dur">Week 2 · On-Site</div>
+          <h3 class="h3">Site Survey</h3>
+          <p>Our structural engineer visits. Soil testing, orientation analysis, utilities assessment. Feasibility report within 7 days.</p>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">3</div>
+        <div class="b">
+          <div class="dur">Weeks 3–6 · Factory</div>
+          <h3 class="h3">Pod Construction</h3>
+          <p>Your pod is built in our controlled factory environment. Weekly photo updates. Zero on-site fabrication mess.</p>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">4</div>
+        <div class="b">
+          <div class="dur">Weeks 7–8 · Your Land</div>
+          <h3 class="h3">Site Preparation</h3>
+          <p>Foundation, utilities, access path. Our ground team coordinates with your local contractors to minimise disruption.</p>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">5</div>
+        <div class="b">
+          <div class="dur">Day 30 · Handover</div>
+          <h3 class="h3">Keys In Hand</h3>
+          <p>Final assembly, snagging, commissioning, full walk-through. Keys in hand. Revenue begins the next morning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADD-ONS ============ -->
+<section class="section bg-white" id="addons">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">07</span> Elevate Your Pod</div>
+        <h2 class="h2 split" style="margin-top:20px">Add-Ons Built<br><em>to Last.</em></h2>
+      </div>
+      <p class="lead reveal">Every add-on is engineered as part of the pod — not an afterthought.</p>
+    </div>
+    <div class="addon-wrap">
+      <div class="addon-list">
+        <div class="addon-item active" data-name="Swimming Pool" data-cat="WATER FEATURE" data-img="bohopods-aerial-exterior-beach-tropical-firepit-lily-pond.png">
+          <span class="ix">01</span><span class="nm">Swimming Pool</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Plunge Pool" data-cat="WATER FEATURE" data-img="bohopods-deck-beachfront-lounge-palm-sunset.png">
+          <span class="ix">02</span><span class="nm">Plunge Pool</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Pergola" data-cat="OUTDOOR LIVING" data-img="bohopods-exterior-zen-rock-garden-mountain-backdrop.png">
+          <span class="ix">03</span><span class="nm">Pergola</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Fire Pit" data-cat="OUTDOOR LIVING" data-img="bohopods-exterior-forest-stone-firepit-misty-mountains.png">
+          <span class="ix">04</span><span class="nm">Fire Pit</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Sit-Out Deck" data-cat="OUTDOOR LIVING" data-img="bohopods-exterior-mountain-sunset-terrace-outdoor-seating.png">
+          <span class="ix">05</span><span class="nm">Sit-Out Deck</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Dark Paneling" data-cat="INTERIOR FINISH" data-img="bohopods-interior-bedroom-mountain-valley-view-reading-chair.png">
+          <span class="ix">06</span><span class="nm">Dark Paneling</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Light Paneling" data-cat="INTERIOR FINISH" data-img="bohopods-interior-bedroom-zen-garden-pendant-lights-white-bed.png">
+          <span class="ix">07</span><span class="nm">Light Paneling</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="addon-item" data-name="Interior Suite" data-cat="INTERIOR FINISH" data-img="bohopods-interior-bedroom-zebra-headboard-wooden-desk.png">
+          <span class="ix">08</span><span class="nm">Interior Suite</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="addon-media reveal d1">
+        <img id="addon-main" src="bohopods-aerial-exterior-beach-tropical-firepit-lily-pond.png" alt="Add-on preview">
+        <div class="addon-caption">
+          <div class="k" id="addon-cat">WATER FEATURE</div>
+          <div class="v" id="addon-name">Swimming Pool</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow reveal"><span class="idx">08</span> Client Stories</div>
+        <h2 class="h2 split" style="margin-top:20px">Trusted by Developers<br><em>Across India.</em></h2>
+      </div>
+      <p class="lead reveal">From first call to revenue — here's what our clients say.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="q">"From first call to the day we handed keys to our first guest — Boho Pods made the whole process feel inevitable. Exactly what they promised."</p>
+        <div class="test-who">
+          <div class="avatar">R</div>
+          <div><b>Rajesh Mehta</b><span>Resort Developer, Coorg</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal d1">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="q">"I had 4 acres and no idea what to do with them. Two pods later, it's generating ₹3.2L a month. The ROI is real and the quality is undeniable."</p>
+        <div class="test-who">
+          <div class="avatar">S</div>
+          <div><b>Suresh Nair</b><span>Landowner, Munnar</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal d2">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="q">"Skeptical about prefab — that lasted until I saw the finish quality. These pods are built like fine furniture. Every joint, every surface."</p>
+        <div class="test-who">
+          <div class="avatar">A</div>
+          <div><b>Anand Krishnamurthy</b><span>Hospitality Group, Goa</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARALLAX ============ -->
+<div class="parallax">
+  <div class="parallax-bg" style="background-image:url('bohopods-aerial-exterior-beach-tropical-firepit-lily-pond.png')"></div>
+  <div class="parallax-scrim"></div>
+  <div class="parallax-inner">
+    <div class="eyebrow center on-dark"><span class="idx">09</span> The Boho Promise</div>
+    <h2 class="split">"The best investment<br>you make is in the land<br><em>beneath your feet."</em></h2>
+    <p>Every pod ships with a 25-year structural warranty, a dedicated project manager, and our word.</p>
+    <a href="#contact" class="btn btn-bronze">Start Your Project
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ============ FOUNDER ============ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid-2">
+      <div class="founder-photo reveal">
+        <div class="img-wrap">
+          <img src="bohopods-interior-bedroom-mountain-valley-view-reading-chair.png" alt="Founder">
+        </div>
+        <div class="founder-badge">
+          <div class="ln"></div>
+          <div>
+            <b>Vikram Dangi</b>
+            <span>Founder & Chief Designer</span>
+          </div>
+        </div>
+      </div>
+      <div class="founder-body">
+        <div class="eyebrow reveal"><span class="idx">10</span> The Founder</div>
+        <blockquote class="split" style="margin-top:24px">Built from a belief that <em>land should work</em> as hard as you do.</blockquote>
+        <p class="reveal d1">Vikram Dangi spent 15 years in construction before he asked the question no one in his industry was asking: why does it take 18 months and a small fortune to build something you can see complete in 30 days?</p>
+        <p class="reveal d2">Boho Pods is his answer. A company built on the premise that luxury and speed are not opposites — and that the Indian landscape deserves structures truly worthy of it.</p>
+        <p class="reveal d3">Every pod that ships carries Vikram's personal quality check. Not because it's policy. Because it's his name on it.</p>
+        <div class="signature reveal d4">Vikram Dangi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section bg-dark" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="eyebrow on-dark reveal"><span class="idx">11</span> Get In Touch</div>
+        <h2 class="h2 split" style="margin-top:20px">Begin Your<br><em>Conversation.</em></h2>
+        <p class="lead reveal d1">No sales pitch. No pressure. A genuine conversation about your land and what's possible on it.</p>
+        <ul class="contact-points reveal d2">
+          <li>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.18a2 2 0 011.99-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            +91 99999 99999
+          </li>
+          <li>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            hello@bohopods.in
+          </li>
+          <li>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            Mumbai · Bengaluru · Pan-India
+          </li>
+        </ul>
+      </div>
+      <div class="contact-form reveal d1">
+        <form id="contact-form">
+          <div class="form-row">
+            <label>First Name</label>
+            <input type="text" placeholder="Rajesh" required>
+          </div>
+          <div class="form-row">
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-row">
+            <label>Tell us about your land & vision</label>
+            <textarea placeholder="I have 3 acres in Coorg and I'm thinking about 2–3 pods for a glamping retreat..." required></textarea>
+          </div>
+          <div class="consent">
+            <input type="checkbox" id="wa-consent" checked>
+            <label for="wa-consent">I'm happy to be contacted on WhatsApp for a faster conversation</label>
+          </div>
+          <button type="submit" class="btn btn-bronze">Request a Consultation
+            <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="form-note">Or <a href="https://wa.me/919999999999">message us on WhatsApp →</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-cta">
+    <div class="container">
+      <h2 class="h2"><em>Your land.</em><br>Its full potential.</h2>
+      <p>12 pod models. 30-day install. Revenue from day one.</p>
+      <a href="#contact" class="btn btn-bronze">Begin Your Project
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-about">
+        <a href="#home" class="brand">
+          <span class="mono">BP</span>
+          <span class="wm"><b>BOHO PODS</b><span>Luxury Glamping Pods</span></span>
+        </a>
+        <p>Premium prefab glamping pods for resort developers and landowners across India.</p>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#pods">The Pods</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#addons">Add-Ons</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#buy">Investment Options</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Warranty Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          <li><a href="mailto:hello@bohopods.in">hello@bohopods.in</a></li>
+          <li><a href="#">Mumbai, Maharashtra</a></li>
+          <li><a href="https://wa.me/919999999999">WhatsApp Us →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Boho Pods. Built by <a href="#">SlaqAI</a>.</span>
+      <span>India's Premium Prefab Glamping Pods</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* ---- Lenis smooth scroll ---- */
+var lenis = new Lenis({ lerp: 0.075, smoothWheel: true });
+lenis.on('scroll', function() {});
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t) { lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+}
+
+/* ---- Page load ---- */
+window.addEventListener('load', () => requestAnimationFrame(() => document.body.classList.add('loaded')));
+document.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.classList.add('loaded'), 80));
+
+/* ---- Nav scroll ---- */
+const nav = document.querySelector('.nav');
+lenis.on('scroll', function(e) { nav.classList.toggle('scrolled', e.scroll > 70); });
+
+/* ---- Word-stagger reveal ---- */
+function makeWord(text) {
+  const wrap = document.createElement('span');
+  wrap.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;';
+  const inner = document.createElement('span');
+  inner.className = 'wd';
+  inner.textContent = text;
+  inner.style.cssText = 'display:inline-block;transform:translateY(112%);transition:transform 0.95s cubic-bezier(0.16,1,0.3,1);';
+  wrap.appendChild(inner);
+  return wrap;
+}
+function splitWords(el) {
+  const nodes = [...el.childNodes];
+  const frag = document.createDocumentFragment();
+  nodes.forEach(node => {
+    if (node.nodeType === 3) {
+      node.textContent.split(/(\s+)/).forEach(tok => {
+        if (!tok) return;
+        if (/^\s+$/.test(tok)) frag.appendChild(document.createTextNode(tok));
+        else frag.appendChild(makeWord(tok));
+      });
+    } else if (node.nodeType === 1) {
+      const clone = node.cloneNode(false);
+      node.textContent.split(/(\s+)/).forEach(tok => {
+        if (!tok) return;
+        if (/^\s+$/.test(tok)) clone.appendChild(document.createTextNode(tok));
+        else clone.appendChild(makeWord(tok));
+      });
+      frag.appendChild(clone);
+    }
+  });
+  el.innerHTML = '';
+  el.appendChild(frag);
+}
+const splitEls = document.querySelectorAll('.split');
+splitEls.forEach(el => {
+  splitWords(el);
+  el.querySelectorAll('.wd').forEach((w, i) => { w.style.transitionDelay = (i * 0.05) + 's'; });
+});
+const splitObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.wd').forEach(w => { w.style.transform = 'translateY(0)'; });
+      splitObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+splitEls.forEach(el => splitObs.observe(el));
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.hero .split .wd').forEach(w => { w.style.transform = 'translateY(0)'; });
+  }, 250);
+});
+
+/* ---- Reveal on scroll ---- */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ---- Counters ---- */
+function animateCount(el) {
+  const target = parseFloat(el.dataset.count);
+  const dur = 1600, start = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const v = target * (1 - Math.pow(1 - p, 3));
+    el.textContent = target % 1 !== 0 ? v.toFixed(1) : Math.round(v);
+    if (p < 1) requestAnimationFrame(tick);
+  })(start);
+}
+new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); } });
+}, { threshold: 0.6 }).observe(document.querySelector('[data-count]') || document.body);
+document.querySelectorAll('[data-count]').forEach(el => {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); } });
+  }, { threshold: 0.6 }).observe(el);
+});
+
+/* ---- Process timeline ---- */
+const steps = [...document.querySelectorAll('.tl-step')];
+const fill = document.querySelector('.tl-line .fill');
+if (steps.length && fill) {
+  const tlObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = steps.indexOf(e.target);
+        e.target.classList.add('active');
+        fill.style.height = (((idx + 1) / steps.length) * 100) + '%';
+      }
+    });
+  }, { threshold: 0.55 });
+  steps.forEach(s => tlObs.observe(s));
+}
+
+/* ---- Add-ons hover ---- */
+const addonItems = document.querySelectorAll('.addon-item');
+const addonMain = document.getElementById('addon-main');
+const addonCat = document.getElementById('addon-cat');
+const addonName = document.getElementById('addon-name');
+
+addonItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    addonItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    if (addonCat) addonCat.textContent = item.dataset.cat || 'ADD-ON';
+    if (addonName) addonName.textContent = item.dataset.name;
+    if (addonMain && item.dataset.img) {
+      addonMain.style.opacity = '0';
+      setTimeout(() => {
+        addonMain.src = item.dataset.img;
+        addonMain.style.opacity = '1';
+      }, 220);
+    }
+  });
+});
+
+/* ---- Booking chips ---- */
+document.querySelectorAll('.booking-filters .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.booking-filters .chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+
+/* ---- Pod favourites ---- */
+document.querySelectorAll('.pod-fav').forEach(f => {
+  f.addEventListener('click', e => { e.preventDefault(); f.classList.toggle('on'); });
+});
+
+/* ---- Parallax ---- */
+const px = document.querySelector('.parallax-bg');
+if (px) {
+  window.addEventListener('scroll', () => {
+    const r = px.parentElement.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight) {
+      const prog = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      px.style.transform = `translateY(${(prog - 0.5) * 90}px)`;
+    }
+  }, { passive: true });
+}
+
+/* ---- Smooth anchor links ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+/* ---- Custom cursor ---- */
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches && window.innerWidth > 1024) {
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  (function loop() { rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a, button, .chip, .pod-fav, .addon-item, .pod-card, .booking-fields').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.classList.add('hover'); dot.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { ring.classList.remove('hover'); dot.classList.remove('hover'); });
+  });
+}
+
+/* ---- Contact form ---- */
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', ev => {
+    ev.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = '✓ We\'ll be in touch within 24 hours.';
+    btn.style.background = '#1f9d4d';
+    btn.style.boxShadow = 'none';
+    btn.disabled = true;
+  });
+}
+
+/* ---- Marquee — JS-driven so it never pauses (browsers freeze CSS animations off-screen) ---- */
+(function() {
+  var track = document.querySelector('.marquee-track');
+  if (!track) return;
+  var x = 0;
+  var halfWidth = 0;
+  var lastTime = 0;
+  var speedPxPerMs = 0.042; /* ~35s per full loop — matches original 36s */
+  function measure() { halfWidth = track.scrollWidth / 2; }
+  measure();
+  window.addEventListener('resize', measure);
+  function tick(time) {
+    var dt = lastTime ? Math.min(time - lastTime, 50) : 16;
+    lastTime = time;
+    x -= speedPxPerMs * dt;
+    if (-x >= halfWidth) x += halfWidth;
+    track.style.transform = 'translateX(' + x + 'px)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ==============================================================
+   HERO — SCROLL-DRIVEN video.currentTime SCRUB  (debug build)
+   If scrubbing looks correct in console but video stays frozen,
+   the MP4 needs re-encoding with dense keyframes:
+   ffmpeg -i bohopods-hero-journey.mp4 -vf scale=960:-1 \
+     -movflags faststart -vcodec libx264 -crf 20 -g 1 \
+     -pix_fmt yuv420p bohopods-hero-journey-scrub.mp4
+   ============================================================== */
+(function () {
+  var track = document.querySelector('.hero-scroll-track');
+  if (!track) { console.warn('[hero] .hero-scroll-track not found'); return; }
+
+  var video = track.querySelector('video');
+  if (!video) { console.warn('[hero] video not found inside .hero-scroll-track'); return; }
+
+  console.log('[hero] video element found:', video.src);
+
+  /* ── Hero phase system (unchanged) ── */
+  var hc  = document.getElementById('hero-content');
+  var cue = document.getElementById('scroll-cue-vid');
+  var ls  = document.getElementById('loading-screen');
+
+  var PHASES = [
+    { label:'Luxury Prefab Glamping',      h1:'Where <em>Nature</em><br>Becomes Home.',   sub:'Premium architect-designed glamping pods — hilltops, beaches, forests across India.', meta:true,  cta:false },
+    { label:'For Landowners & Developers', h1:'Your Land.<br><em>Your Legacy.</em>',      sub:'Transform idle terrain into revenue-generating luxury escapes — no permanent construction.', meta:false, cta:false },
+    { label:'Interior Experience',          h1:'Wake Up<br><em>To This.</em>',             sub:'Floor-to-ceiling glass, handcrafted interiors, panoramic views every morning.', meta:false, cta:false },
+    { label:'Engineering & Craft',          h1:'Precision.<br><em>In Every Panel.</em>',  sub:'Structural steel, thermal SIP panels, precision joinery — built to last 25+ years.', meta:false, cta:false },
+    { label:'Begin Your Journey',           h1:'The Landscape<br><em>Is Yours.</em>',     sub:null, meta:false, cta:true }
+  ];
+  var BREAKS = [0, 0.18, 0.36, 0.54, 0.72];
+
+  function buildHTML(d) {
+    var meta = d.meta ? '<div class="hero-meta"><span>12+ Models</span><span>30-Day Install</span><span>100% Prefab</span><span>Pan-India</span></div>' : '';
+    var cta  = d.cta  ? '<a href="#contact" class="btn btn-bronze" style="margin-top:28px;display:inline-flex;align-items:center;gap:10px;">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' : '';
+    return '<div class="hero-phase vis"><div class="eyebrow hero-eyebrow"><span class="idx">' + d.label + '</span></div><h1>' + d.h1 + '</h1>' + (d.sub ? '<p class="hero-sub">' + d.sub + '</p>' : '') + meta + cta + '</div>';
+  }
+  var curPhase = -1, busy = false;
+  function showPhase(idx, instant) {
+    if (idx === curPhase) return;
+    if (busy && !instant) return;
+    busy = true; curPhase = idx;
+    if (hc && hc.children.length && !instant) {
+      hc.style.cssText = 'transition:opacity .28s,transform .28s;opacity:0;transform:translateY(-14px)';
+      setTimeout(function() {
+        hc.innerHTML = buildHTML(PHASES[idx]);
+        hc.style.cssText = 'transition:none;opacity:0;transform:translateY(18px)';
+        requestAnimationFrame(function() { requestAnimationFrame(function() {
+          hc.style.cssText = 'transition:opacity .5s,transform .5s;opacity:1;transform:translateY(0)';
+          setTimeout(function() { busy = false; }, 520);
+        }); });
+      }, 300);
+    } else if (hc) {
+      hc.innerHTML = buildHTML(PHASES[idx]);
+      hc.style.cssText = instant ? 'opacity:1;transform:none' : 'transition:none;opacity:0;transform:translateY(18px)';
+      if (!instant) {
+        requestAnimationFrame(function() { requestAnimationFrame(function() {
+          hc.style.cssText = 'transition:opacity .55s,transform .55s;opacity:1;transform:translateY(0)';
+          setTimeout(function() { busy = false; }, 580);
+        }); });
+      } else { busy = false; }
+    }
+  }
+  if (hc) showPhase(0, true);
+
+  /* ── Scroll scrub ── */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking     = false;
+  var duration    = 0;
+  var initialized = false;
+
+  function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+
+  function update() {
+    if (!initialized || !duration || !isFinite(duration)) return;
+
+    var total    = track.offsetHeight - window.innerHeight;
+    var rect     = track.getBoundingClientRect();
+    var passed   = clamp(-rect.top, 0, total);
+    var progress = total > 0 ? passed / total : 0;
+    var targetTime = clamp(progress * duration, 0, duration);
+
+    console.log('[hero scrub]', {
+      readyState: video.readyState,
+      duration:   duration,
+      progress:   progress.toFixed(3),
+      targetTime: targetTime.toFixed(3),
+      currentTime: video.currentTime.toFixed(3)
+    });
+
+    if (video.readyState >= 2) {
+      video.currentTime = targetTime;
+    }
+
+    /* Phase + scroll cue */
+    var np = 0;
+    for (var i = BREAKS.length - 1; i >= 0; i--) { if (progress >= BREAKS[i]) { np = i; break; } }
+    showPhase(np, false);
+    if (cue) cue.style.opacity = progress > 0.04 ? '0' : '1';
+  }
+
+  function requestTick() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function() { update(); ticking = false; });
+  }
+
+  function initScrub() {
+    duration = video.duration;
+    if (!duration || !isFinite(duration)) {
+      console.warn('[hero] duration invalid at initScrub:', duration);
+      return;
+    }
+    console.log('[hero] initScrub — duration:', duration, 'readyState:', video.readyState);
+    video.pause();
+    video.currentTime = 0;
+    initialized = true;
+    if (ls) { ls.classList.add('fade-out'); setTimeout(function() { ls.style.display = 'none'; }, 850); }
+    requestTick();
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+    window.addEventListener('load',   requestTick);
+    /* Lenis fires its own scroll event — hook it too */
+    if (typeof lenis !== 'undefined') { lenis.on('scroll', requestTick); }
+  }
+
+  /* iOS/Safari: briefly play+pause on first touch to unlock seeking */
+  var unlock = function() {
+    video.play().then(function() { video.pause(); video.currentTime = 0; }).catch(function(){});
+    window.removeEventListener('touchstart', unlock);
+  };
+  window.addEventListener('touchstart', unlock, { once: true, passive: true });
+
+  /* Start immediately if video is already ready, otherwise wait */
+  if (video.readyState >= 2) {
+    console.log('[hero] video already ready (readyState ' + video.readyState + '), calling initScrub now');
+    initScrub();
+  } else {
+    console.log('[hero] waiting for video to load (readyState ' + video.readyState + ')');
+    video.addEventListener('loadedmetadata',  initScrub, { once: true });
+    video.addEventListener('loadeddata',      initScrub, { once: true });
+    video.addEventListener('canplaythrough',  initScrub, { once: true });
+    video.load();
+  }
+})();
+</script>
+</body>
+</html>
